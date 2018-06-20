@@ -1,0 +1,17 @@
+{
+  "name": "chadanuk/dusk-wordpress",
+  "license": "MIT",
+  "description": "Laravel dusk for headless chromium testing of WordPress sites",
+  "require": {
+    "php": ">=7.0",
+    "phpunit/phpunit": "^7.1",
+    "duncan3dc/dusk": "^0.7.0",
+    "guzzlehttp/guzzle": "^4.2.4",
+    "wp-phpunit/wp-phpunit": "^4.9"
+  },
+  "autoload": {
+    "psr-4": {
+      "Chadanuk\\DuskWordpressTests\\": "src/"
+    }
+  }
+}
