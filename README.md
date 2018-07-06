@@ -18,7 +18,44 @@ composer require chadanuk/dusk-wordpress
       - screenshots
         - ExampleTest.php
 
+###### phpunit.xml
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="vendor/chadanuk/dusk-wordpress/bootstrap.php"
+         backupGlobals="false"
+         backupStaticAttributes="false"
+         colors="true"
+         verbose="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false">
+    <testsuites>
+        <testsuite name="Rareloop Wordpress Theme Test Suite">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist>
+            <directory suffix=".php">/</directory>
+        </whitelist>
+    </filter>
+    <php>
+        <env name="WP_ENV" value="testing"/>
+        <env name="DB_NAME" value="database_name"/>
+        <env name="DB_USER" value="root"/>
+        <env name="DB_PASSWORD" value=""/>
+        <env name="WP_THEME" value="theme_name"/>
+        <const name="WP_INSTALLING" value="true"/>
+    </php>
+</phpunit>
+
+```
+
 ## Writing Tests
+
+The assertions available to you are documented on the Laravel site (https://laravel.com/docs/5.6/dusk#available-assertions)
 
 ###### ExampleTest.php
 

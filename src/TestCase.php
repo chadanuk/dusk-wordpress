@@ -45,7 +45,7 @@ class TestCase extends \WP_UnitTestCase
 
     public function setUp()
     {
-        switch_theme('lumberjack');
+        switch_theme(env('WP_THEME'));
 
         // Delete any default posts & related data
         _delete_all_posts();
