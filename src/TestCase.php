@@ -33,7 +33,7 @@ class TestCase extends \WP_UnitTestCase
 
         static::$duskCommand = new DuskCommand(static::$baseDir);
         static::$duskCommand->execute(new ArrayInput([]), new ConsoleOutput());
-        dump('hi');
+
         parent::setUpBeforeClass();
     }
 
@@ -118,8 +118,9 @@ class TestCase extends \WP_UnitTestCase
 
         require_once(static::$baseDir . '/web/wp/wp-settings.php');
 
+
         require_once(static::$baseDir . '/web/wp/wp-admin/includes/upgrade.php');
-        wp_install('THEME TEST', 'test.user@rareloop.com', 'test.user@rareloop.com', false, '', wp_slash('letmein'));
+        wp_install('THEME TEST', 'test.user@example.com', 'test.user@example.com', false, '', wp_slash('letmein'));
     }
 
     function start_transaction()
