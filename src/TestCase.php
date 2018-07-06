@@ -12,6 +12,7 @@ use Chadanuk\DuskWordpressTests\Console\DuskCommand;
 class TestCase extends \WP_UnitTestCase
 {
     use ProvidesBrowser;
+
     public static $vendorDir;
     public static $baseDir;
     public static $duskCommand;
@@ -54,6 +55,13 @@ class TestCase extends \WP_UnitTestCase
         parent::setUp();
 
         $_SERVER[' SERVER_PROTOCOL '] = ' ';
+    }
+
+    public function tearDown()
+    {
+        $this->browser->__destruct();
+
+        parent::tearDown();
     }
 
     public function initialiseBrowser()
