@@ -11,9 +11,10 @@ use duncan3dc\Laravel\Dusk;
 use Laravel\Dusk\Concerns\ProvidesBrowser;
 use \Symfony\Component\Console\Application;
 use Symfony\Component\Console\Input\ArrayInput;
+use Chadanuk\DuskWordpressTests\Traits\HasDatabase;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Chadanuk\DuskWordpressTests\Console\DuskCommand;
-use Chadanuk\DuskWordpressTests\DatabaseTestCase as BaseTestCase;
+use Chadanuk\DuskWordpressTests\TestCase as BaseTestCase;
 
 class BrowserTestCase extends BaseTestCase
 {
@@ -21,11 +22,16 @@ class BrowserTestCase extends BaseTestCase
 
     public static $duskCommand;
 
-    public static function setUpBeforeClass() {
-        parent::setUpBeforeClass();
+    public static function setUpBeforeClass()
+    {
+        static::$baseDir = realpath(__DIR__ . '/../../');
+        static::$vendorDir = static::$baseDir . '/vendor/';
+
         static::$duskCommand = new DuskCommand(static::$baseDir);
 
         static::$duskCommand->execute(new ArrayInput([]), new ConsoleOutput());
+
+        parent::setUpBeforeClass();
     }
 
     public static function tearDownAfterClass()
@@ -50,10 +56,10 @@ class BrowserTestCase extends BaseTestCase
         // Initialise browser
         $this->browser = new Dusk;
 
-        $screenshotsPath = static::$baseDir.'/tests/Browser/screenshots';
+        $screenshotsPath = static::$baseDir . '/tests/Browser/screenshots';
         @mkdir($screenshotsPath, 0777);
 
-        $consoleLogPath = static::$baseDir.'/tests/Browser/console';
+        $consoleLogPath = static::$baseDir . '/tests/Browser/console';
         @mkdir($consoleLogPath, 0777);
 
         Browser::$storeScreenshotsAt = $screenshotsPath;
@@ -61,7 +67,8 @@ class BrowserTestCase extends BaseTestCase
         Browser::$baseUrl = env('WP_HOME');
     }
 
-    protected function driver() {
+    protected function driver()
+    {
         return $this->browser->getDriver();
     }
 
