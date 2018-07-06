@@ -59,8 +59,8 @@ class TestCase extends \WP_UnitTestCase
 
     public function tearDown()
     {
-        $this->browser->__destruct();
-
+        // $this->browser->quit();
+        // unset($this->browser);
         parent::tearDown();
     }
 
@@ -68,7 +68,6 @@ class TestCase extends \WP_UnitTestCase
     {
         // Initialise browser
         $this->browser = new Dusk;
-
         $screenshotsPath = static::$baseDir . '/tests/Browser/screenshots';
         @mkdir($screenshotsPath, 0777);
 
