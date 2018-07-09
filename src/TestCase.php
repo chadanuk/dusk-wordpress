@@ -22,7 +22,7 @@ class TestCase extends \WP_UnitTestCase
 
     public static function setUpBeforeClass()
     {
-        static::$baseDir = realpath(__DIR__ . '/../../');
+        static::$baseDir = realpath(__DIR__ . '/../../../../');
         static::$vendorDir = static::$baseDir . '/vendor/';
 
         require_once(static::$baseDir . '/vendor/autoload.php');
