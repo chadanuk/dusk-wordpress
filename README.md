@@ -32,7 +32,7 @@ composer require chadanuk/dusk-wordpress
          processIsolation="false"
          stopOnFailure="false">
     <testsuites>
-        <testsuite name="Rareloop Wordpress Theme Test Suite">
+        <testsuite name="Dusk Wordpress Theme Test Suite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>
