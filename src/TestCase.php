@@ -25,7 +25,7 @@ class TestCase extends \WP_UnitTestCase
         static::$baseDir = realpath(__DIR__ . '/../../');
         static::$vendorDir = static::$baseDir . '/vendor/';
 
-        require_once(static::$baseDir . '/vendor/autoload.php');
+        require_once(static::$vendorDir . '/autoload.php');
         require_once(static::$baseDir . '/config/application.php');
 
         static::$tablePrefix = $table_prefix;
