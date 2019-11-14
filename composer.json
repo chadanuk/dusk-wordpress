@@ -7,7 +7,7 @@
     "phpunit/phpunit": "^6.0",
     "duncan3dc/dusk": "^0.7.0",
     "guzzlehttp/guzzle": "^6.4.1",
-    "wp-phpunit/wp-phpunit": "^4.9"
+    "wp-phpunit/wp-phpunit": "^5.3"
   },
   "autoload": {
     "psr-4": {
