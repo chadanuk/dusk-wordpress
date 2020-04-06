@@ -4,7 +4,7 @@
   "description": "Laravel dusk for headless chromium testing of WordPress sites",
   "require": {
     "php": ">=7.0",
-    "phpunit/phpunit": "^6.0",
+    "phpunit/phpunit": "^7.5",
     "duncan3dc/dusk": "^0.7.0",
     "guzzlehttp/guzzle": "^6.4.1",
     "wp-phpunit/wp-phpunit": "^5.4"
